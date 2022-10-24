@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
+import LogIn from "../../components/LogIn/LogIn";
+import Register from "../../components/Register/Register";
+import TermsCondition from "../../components/TermsAndCondition/TermsCondition";
 import Main from "../../Main/Main";
 
 export const route = createBrowserRouter([
@@ -16,6 +18,18 @@ export const route = createBrowserRouter([
             {
                 path: 'footer',
                 element: <Footer></Footer>
+            },
+            {
+                path: 'register',
+                element: <Register></Register>
+            },
+            {
+                path: 'login',
+                element: <LogIn></LogIn>
+            },
+            {
+                path: 'terms',
+                element: <TermsCondition></TermsCondition>
             }
         ]
     }
