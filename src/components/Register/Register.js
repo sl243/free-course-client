@@ -2,11 +2,13 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Register = () => {
     return (
-        <div className='mt-5'>
+        <div className='mt-5 mb-5'>
             <div className='mt-5 border rounded shadow-lg p-5 w-50 mx-auto'>
+                <h3>Create an Account</h3>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Name</Form.Label>
@@ -50,7 +52,25 @@ const Register = () => {
                         Create an Account
                     </Button>
 
+                    <p className='mt-2'>Already have an account ?
+                        <Link to='/login'> Login</Link>
+                    </p>
                 </Form>
+                <div className='w-50 mx-auto'>
+                    <p>----------------------- Or ------------------------</p>
+                    <Button
+                        // onClick={handleGoogleSignIn}
+                        className='w-100 mx-auto d-block mb-2'
+                        variant="outline-primary">
+                        <FaGoogle></FaGoogle> Continue with Google
+                    </Button>
+                    <Button
+                        // onClick={handleGithubSignIn}
+                        className='w-100 mx-auto d-block mb-2'
+                        variant="outline-primary">
+                        <FaGithub></FaGithub> Continue with Github
+                    </Button>
+                </div>
             </div>
         </div>
     );
