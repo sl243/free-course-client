@@ -6,8 +6,8 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Register = () => {
     return (
-        <div className='mt-5 mb-5'>
-            <div className='mt-5 border rounded shadow-lg p-5 w-50 mx-auto'>
+        <div>
+            <div className='mt-5 mb-5 border rounded shadow-lg p-5 w-50 mx-auto'>
                 <h3>Create an Account</h3>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -41,11 +41,13 @@ const Register = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check
+                            // onClick={handleAccepted}
                             type="checkbox"
                             label={<>Accept <Link to='/terms'>Terms and Condition</Link> </>} />
                     </Form.Group>
 
                     <Button
+                        // disabled={!accepted}
                         className='w-25 mx-auto'
                         variant="primary"
                         type="submit">
