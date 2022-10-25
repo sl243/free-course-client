@@ -1,15 +1,66 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const {userRegister, signInGoogle, signInGithub} = useContext(AuthContext);
+
+    // user account create
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+        console.log(name, email, phone, password, photoURL)
+
+        userRegister(email, password)
+        .then( result => {
+            const user = result.user;
+            console.log(user)
+            form.reset();
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }
+
+    // Google Sign in
+    const handleGoogleSignIn = () => {
+        signInGoogle()
+        .then( result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch( error => {
+            console.error(error)
+        })
+    }
+
+    // Github Sign in
+    const handleGithubSignIn = () => {
+        signInGithub()
+        .then ( result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch( error => {
+            console.error(error)
+        })
+    }
+
+
     return (
         <div>
             <div className='mt-5 mb-5 border rounded shadow-lg p-5 w-50 mx-auto'>
                 <h3>Create an Account</h3>
-                <Form>
+                <Form onSubmit={handleRegister}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Name</Form.Label>
                         <Form.Control name='name' type="text" placeholder="Your Full Name" />
@@ -61,13 +112,13 @@ const Register = () => {
                 <div className='w-50 mx-auto'>
                     <p>----------------------- Or ------------------------</p>
                     <Button
-                        // onClick={handleGoogleSignIn}
+                        onClick={handleGoogleSignIn}
                         className='w-100 mx-auto d-block mb-2'
                         variant="outline-primary">
                         <FaGoogle></FaGoogle> Continue with Google
                     </Button>
                     <Button
-                        // onClick={handleGithubSignIn}
+                        onClick={handleGithubSignIn}
                         className='w-100 mx-auto d-block mb-2'
                         variant="outline-primary">
                         <FaGithub></FaGithub> Continue with Github
