@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const CourseCategory = () => {
     const [categories, setCategories] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
         fetch('http://localhost:5000/course-categories')
-        .then( res => res.json())
-        .then( data => setCategories(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setCategories(data))
+    }, [])
 
     return (
         <div>
@@ -16,7 +17,9 @@ const CourseCategory = () => {
             <div>
                 {
                     categories.map(category => <p key={category.id}>
-                        <Link className='fs-4' to={`/courseitems/${category.id}`} >{category.name}</Link>
+                        <Link to={`/courseDetails/${category.id}`} >
+                            <Button className='fs-6' variant="outline-success">{category.name}</Button>
+                        </Link>
                     </p>)
                 }
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Courses.css'
 import {useLoaderData } from 'react-router-dom';
 import CourseCategory from '../CourseCategory/CourseCategory';
 import CourseItems from '../CourseItems/CourseItems';
@@ -9,10 +10,10 @@ const Courses = () => {
         <div>
             <div className='container mt-5'>
                 <div className='row'>
-                    <div className='col-4'>
+                    <div className='col-3'>
                         <CourseCategory></CourseCategory>
                     </div>
-                    <div className='col-8'>
+                    <div className='col-9 course-container'>
                         {
                             courses.map(course => <CourseItems
                                 key={course.id}

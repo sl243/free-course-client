@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import CourseItems from "../../components/Courses/CourseItems/CourseItems";
+import CourseDetails from "../../components/Courses/CourseDetails/CourseDetails";
 import Courses from "../../components/Courses/Courses/Courses";
 import Footer from "../../components/Footer/Footer";
 import Home from "../../components/Home/Home";
@@ -39,9 +39,15 @@ export const route = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/course')
             },
             {
-                path: '/courseitems/:id',
-                element: <CourseItems></CourseItems>
+                path: '/courseDetails/:id',
+                element: <CourseDetails></CourseDetails> ,
+                loader: ({params}) => fetch(`http://localhost:5000/courseDetails/${params.id}`)
             },
+            {
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+            }
         ]
     }
 ])
