@@ -100,7 +100,7 @@ const Register = () => {
                     <Button
                         // disabled={!accepted}
                         className='w-25 mx-auto'
-                        variant="primary"
+                        variant="success"
                         type="submit">
                         Create an Account
                     </Button>
@@ -114,13 +114,13 @@ const Register = () => {
                     <Button
                         onClick={handleGoogleSignIn}
                         className='w-100 mx-auto d-block mb-2'
-                        variant="outline-primary">
+                        variant="outline-success">
                         <FaGoogle></FaGoogle> Continue with Google
                     </Button>
                     <Button
                         onClick={handleGithubSignIn}
                         className='w-100 mx-auto d-block mb-2'
-                        variant="outline-primary">
+                        variant="outline-success">
                         <FaGithub></FaGithub> Continue with Github
                     </Button>
                 </div>

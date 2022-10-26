@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -14,7 +14,7 @@ const CourseDetails = () => {
                         <Card.Header><h2>{courseCategory[0].name}</h2></Card.Header>
                     </div>
                     <div>
-                        <Button variant="primary">Download</Button>
+                        <Button variant="success">Download</Button>
                     </div>
                 </div>
                 <Card.Body className='mt-3 mb-3'>
@@ -28,7 +28,9 @@ const CourseDetails = () => {
                             <Card.Text><h4>Course Duration: {courseCategory[0].duration}</h4></Card.Text>
                         </div>
                         <div>
-                            <Button variant="primary">Get Enroll</Button>
+                            <Link to='/checkout'>
+                                <Button variant="success">Get premium access</Button>
+                            </Link>
                         </div>
                     </div>
                 </Card.Body>

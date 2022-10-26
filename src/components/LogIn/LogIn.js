@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const {userSignIn} = useContext(AuthContext);
+    const {userSignIn, user} = useContext(AuthContext);
+    const navigate = useNavigate()
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleSignIn = (event) => {
@@ -20,12 +24,27 @@ const LogIn = () => {
             const user = result.user;
             console.log(user)
             form.reset()
+            // navigate(from, {replace: true})
         })
         .catch(error => {
             console.error(error)
         })
 
     }
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true })
+        }
+
+        // if(user?.emailVerified){
+        //     navigate(from, {replace: true})
+        // }
+        // else {
+        //     toast.error('Your Email is not Verity. Please Verify Your Email Address')
+        // }
+
+    }, [user, navigate, from])
 
     return (
         <div>
@@ -41,7 +60,7 @@ const LogIn = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder="Enter Password" required />
                     </Form.Group>
-                    <Button className='w-25 mx-auto' variant="primary" type="submit">
+                    <Button className='w-25 mx-auto' variant="success" type="submit">
                         Login
                     </Button>
                     <p className='mt-2'>Don't have an account?

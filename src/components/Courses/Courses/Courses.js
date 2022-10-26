@@ -38,7 +38,7 @@ const Courses = () => {
                                 <Card.Body>
                                     <Card.Text>
                                         <Link to={`/courseDetails/${card.id}`} >
-                                            <Button className='fs-6' variant="outline-success">Details</Button>
+                                            <Button className='fs-6' variant="success">Details</Button>
                                         </Link>
                                     </Card.Text>
                                 </Card.Body>

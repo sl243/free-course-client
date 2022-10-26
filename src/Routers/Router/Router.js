@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Checkout from "../../components/Courses/Checkout/Checkout";
 import CourseDetails from "../../components/Courses/CourseDetails/CourseDetails";
 import Courses from "../../components/Courses/Courses/Courses";
 import Footer from "../../components/Footer/Footer";
@@ -7,6 +8,7 @@ import LogIn from "../../components/LogIn/LogIn";
 import Register from "../../components/Register/Register";
 import TermsCondition from "../../components/TermsAndCondition/TermsCondition";
 import Main from "../../Main/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const route = createBrowserRouter([
     {
@@ -32,6 +34,10 @@ export const route = createBrowserRouter([
             {
                 path: '/terms',
                 element: <TermsCondition></TermsCondition>
+            },
+            {
+                path: '/checkout',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             },
             {
                 path: '/courses',
