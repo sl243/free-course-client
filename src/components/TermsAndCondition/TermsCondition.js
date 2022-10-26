@@ -2,8 +2,8 @@ import React from 'react';
 
 const TermsCondition = () => {
     return (
-        <div>
-            <h1>This is Term and Condition</h1>
+        <div className='mt-5 border rounded shadow-lg p-5 w-50 mx-auto bg-light'>
+            <h2>Terms and Condition</h2>
         </div>
     );
 };

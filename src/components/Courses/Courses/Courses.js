@@ -17,12 +17,12 @@ const Courses = () => {
         <div>
             <div className='container mt-5'>
                 <div className='course-body row mb-5'>
-                    <div className='col-3 mt-5 border rounded shadow-lg bg-light'>
+                    <div className='course-body-title col-3 mt-5 border rounded shadow-lg bg-light'>
                         <h3 className='text-center mb-3 mt-5'>Course Categories</h3>
                         {
                             categories.map(category => <p key={category.id}>
                                 <Link to={`/courseDetails/${category.id}`} >
-                                    <Button className='fs-6 w-100' variant="outline-success">{category.name}</Button>
+                                    <Button className='category-button fs-6 w-100' variant="outline-success">{category.name}</Button>
                                 </Link>
                             </p>)
                         }

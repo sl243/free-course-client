@@ -21,11 +21,18 @@ const Header = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-            <Container>
+            <Container className='header'>
+                <img
+                    src="https://i.ibb.co/R2hYCH2/codemap.jpg"
+                    width="40"
+                    height="40"
+                    className="d-inline-block align-top"
+                    alt=""
+                />
                 <Navbar.Brand><Link to='/'>Webcode</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto ">
                         <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
                         <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
                         <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
@@ -33,7 +40,6 @@ const Header = () => {
                     <Nav>
                         {user?.uid ?
                             <>
-                                {/* <Button className='me-2' variant="outline-light">{user?.displayName}</Button> */}
                                 <Link to='/profile'>
                                     {
                                         user?.photoURL ?
@@ -47,7 +53,7 @@ const Header = () => {
                                             <FaUser></FaUser>
                                     }
                                 </Link>
-                                <Button onClick={handleSignOut} className='me-2 ms-2' variant="outline-light">Logout</Button>
+                                <Button onClick={handleSignOut} className='me-2 ms-2' variant="outline-success">Logout</Button>
                             </>
                             :
                             <>

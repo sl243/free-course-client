@@ -9,6 +9,8 @@ import toast from 'react-hot-toast';
 const Register = () => {
     const {userRegister, signInGoogle, signInGithub, emailVerification} = useContext(AuthContext);
     const [error, setError] = useState('')
+    const [accepted, setAccepted] = useState();
+    // const [errorPassword, setErrorPassword] = useState('');
 
     // user account create
     const handleRegister = event => {
@@ -17,10 +19,28 @@ const Register = () => {
 
         const name = form.name.value;
         const email = form.email.value;
-        const phone = form.phone.value;
         const password = form.password.value;
         const photoURL = form.photoURL.value;
-        console.log(name, email, phone, password, photoURL)
+        console.log(name, email, password, photoURL)
+
+         // password validation
+         
+        // if (!/[a-z]/.test(password)) {
+        //     setErrorPassword("Your password must contain at least one letter.");
+        //     return;
+        // }
+        // if (!/[0-9]/.test(password)) {
+        //     setErrorPassword("Your password must contain at least one digit.");
+        //     return;
+        // }
+        // if (!/(?=.*[A-Z])/.test(password)) {
+        //     setErrorPassword("Your password must contain at least one Uppercase.");
+        //     return;
+        // }
+        // if (password.length < 8) {
+        //     setErrorPassword("Your password must be at least 8 characters");
+        //     return; 
+        // }
 
         userRegister(email, password)
         .then( result => {
@@ -69,6 +89,12 @@ const Register = () => {
             .catch(error => console.error(error))
     }
 
+    // Terms and condition accepted button diasabel
+    const handleAccepted = (event) => {
+        setAccepted(event.target.checked)
+    }
+
+
 
     return (
         <div>
@@ -85,11 +111,6 @@ const Register = () => {
                         <Form.Control name='email' type="email" placeholder="Enter email" required />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Contact Number</Form.Label>
-                        <Form.Control name='phone' type="text" placeholder="Enter Your Contact Number" required />
-                    </Form.Group>
-
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder="Enter Password" required />
@@ -104,15 +125,19 @@ const Register = () => {
                        {error}
                     </Form.Group>
 
+                    <Form.Group className="mb-3 text-danger" controlId="formBasicPassword">
+                       {/* {errorPassword} */}
+                    </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check
-                            // onClick={handleAccepted}
+                            onClick={handleAccepted}
                             type="checkbox"
                             label={<>Accept <Link to='/terms'>Terms and Condition</Link> </>} />
                     </Form.Group>
 
                     <Button
-                        // disabled={!accepted}
+                        disabled={!accepted}
                         className='w-25 mx-auto'
                         variant="success"
                         type="submit">
