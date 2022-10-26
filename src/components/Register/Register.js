@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const {userRegister, signInGoogle, signInGithub, emailVerification} = useContext(AuthContext);
@@ -28,6 +29,7 @@ const Register = () => {
             form.reset();
             setError('');
             handleEmailVerification();
+            toast.success('Please Verify Your Email Address')
             
         })
         .catch(error => {
