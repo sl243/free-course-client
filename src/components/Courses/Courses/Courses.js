@@ -16,18 +16,18 @@ const Courses = () => {
     return (
         <div>
             <div className='container mt-5'>
-                <div className='row'>
-                    <div className='col-3 mt-5'>
-                        <h3 className='mb-3'>Course Categories</h3>
+                <div className='row mb-5'>
+                    <div className='col-3 mt-5 border rounded shadow-lg bg-light'>
+                        <h3 className='mb-3 mt-5'>Course Categories</h3>
                         {
                             categories.map(category => <p key={category.id}>
                                 <Link to={`/courseDetails/${category.id}`} >
-                                    <Button className='fs-6' variant="outline-success">{category.name}</Button>
+                                    <Button className='fs-6 w-100' variant="outline-success">{category.name}</Button>
                                 </Link>
                             </p>)
                         }
                     </div>
-                    <div className='col-9 course-container mb-5'>
+                    <div className='col-9 course-container'>
                         {
                             categories.map(card => <Card className="text-center container mt-5">
                                 <Card.Header className='mt-3'>

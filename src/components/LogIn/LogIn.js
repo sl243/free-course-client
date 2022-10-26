@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -51,7 +51,7 @@ const LogIn = () => {
 
     return (
         <div>
-            <div className='mt-5 border rounded shadow-lg p-5 w-50 mx-auto'>
+            <div className='mt-5 border rounded shadow-lg p-5 w-50 mx-auto bg-light'>
                 <h3>Login Your Account</h3>
                 <Form onSubmit={handleSignIn}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -63,6 +63,11 @@ const LogIn = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder="Enter Password" required />
                     </Form.Group>
+
+                    <Form.Group className="mb-3 text-danger" controlId="formBasicPassword">
+                     
+                    </Form.Group>
+
                     <Button className='w-25 mx-auto' variant="success" type="submit">
                         Login
                     </Button>

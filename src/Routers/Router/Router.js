@@ -5,6 +5,7 @@ import Courses from "../../components/Courses/Courses/Courses";
 import Footer from "../../components/Footer/Footer";
 import Home from "../../components/Home/Home";
 import LogIn from "../../components/LogIn/LogIn";
+import Notfound from "../../components/Notfound/Notfound";
 import Register from "../../components/Register/Register";
 import TermsCondition from "../../components/TermsAndCondition/TermsCondition";
 import Main from "../../Main/Main";
@@ -49,7 +50,12 @@ export const route = createBrowserRouter([
                 path: '/courseDetails/:id',
                 element: <CourseDetails></CourseDetails> ,
                 loader: ({params}) => fetch(`http://localhost:5000/courseDetails/${params.id}`)
-            }
+            },
+            
         ]
+    },
+    {
+        path: '*',
+        element: <Notfound></Notfound>
     }
 ])

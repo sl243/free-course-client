@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,8 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const {userRegister, signInGoogle, signInGithub} = useContext(AuthContext);
+    const {userRegister, signInGoogle, signInGithub, emailVerification} = useContext(AuthContext);
+    const [error, setError] = useState('')
 
     // user account create
     const handleRegister = event => {
@@ -25,9 +26,13 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             form.reset();
+            setError('');
+            handleEmailVerification();
+            
         })
         .catch(error => {
             console.error(error)
+            setError(error.message);
         })
     }
 
@@ -55,10 +60,17 @@ const Register = () => {
         })
     }
 
+     // User Email Verification
+     const handleEmailVerification = () => {
+        emailVerification()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
 
     return (
         <div>
-            <div className='mt-5 mb-5 border rounded shadow-lg p-5 w-50 mx-auto'>
+            <div className='mt-5 mb-5 border rounded shadow-lg p-5 w-50 mx-auto bg-light'>
                 <h3>Create an Account</h3>
                 <Form onSubmit={handleRegister}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -87,7 +99,7 @@ const Register = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3 text-danger" controlId="formBasicPassword">
-
+                       {error}
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
