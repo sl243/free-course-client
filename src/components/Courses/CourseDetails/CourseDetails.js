@@ -28,7 +28,7 @@ const CourseDetails = () => {
                             <Card.Text><h4>Course Duration: {courseCategory[0].duration}</h4></Card.Text>
                         </div>
                         <div>
-                            <Link to='/checkout'>
+                            <Link to={`/checkout/${courseCategory[0].id}`}>
                                 <Button variant="success">Get premium access</Button>
                             </Link>
                         </div>

@@ -27,7 +27,7 @@ const Courses = () => {
                             </p>)
                         }
                     </div>
-                    <div className='col-9 course-container'>
+                    <div className='col-9 course-container mb-5'>
                         {
                             categories.map(card => <Card className="text-center container mt-5">
                                 <Card.Header className='mt-3'>
@@ -36,9 +36,10 @@ const Courses = () => {
                                     </h4>
                                 </Card.Header>
                                 <Card.Body>
+                                <Card.Img variant="top" style={{ height: '100px' }} src={card.image_url} />
                                     <Card.Text>
                                         <Link to={`/courseDetails/${card.id}`} >
-                                            <Button className='fs-6' variant="success">Details</Button>
+                                            <Button className='fs-6 mt-3' variant="success">Details</Button>
                                         </Link>
                                     </Card.Text>
                                 </Card.Body>
