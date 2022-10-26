@@ -16,9 +16,9 @@ const Courses = () => {
     return (
         <div>
             <div className='container mt-5'>
-                <div className='row mb-5'>
+                <div className='course-body row mb-5'>
                     <div className='col-3 mt-5 border rounded shadow-lg bg-light'>
-                        <h3 className='mb-3 mt-5'>Course Categories</h3>
+                        <h3 className='text-center mb-3 mt-5'>Course Categories</h3>
                         {
                             categories.map(category => <p key={category.id}>
                                 <Link to={`/courseDetails/${category.id}`} >
