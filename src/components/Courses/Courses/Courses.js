@@ -17,7 +17,7 @@ const Courses = () => {
         <div>
             <div className='container mt-5'>
                 <div className='course-body row mb-5'>
-                    <div className='course-body-title col-3 mt-5 border rounded shadow-lg bg-light'>
+                    <div className='course-body-title col-sm-12 col-lg-3 mt-5 border rounded shadow-lg bg-light'>
                         <h3 className='text-center mb-3 mt-5'>Course Categories</h3>
                         {
                             categories.map(category => <p key={category.id}>
@@ -27,7 +27,7 @@ const Courses = () => {
                             </p>)
                         }
                     </div>
-                    <div className='col-9 course-container'>
+                    <div className='col-sm-12 col-lg-9 course-container'>
                         {
                             categories.map(card => <Card className="text-center container mt-5">
                                 <Card.Header className='mt-3'>
