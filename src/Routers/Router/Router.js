@@ -45,17 +45,17 @@ export const route = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader: ({params}) => fetch(`https://free-course-server.vercel.app/checkout/${params.id}`)
             },
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://free-course-server.vercel.app/course')
             },
             {
                 path: '/courseDetails/:id',
                 element: <CourseDetails></CourseDetails> ,
-                loader: ({params}) => fetch(`http://localhost:5000/courseDetails/${params.id}`)
+                loader: ({params}) => fetch(`https://free-course-server.vercel.app/courseDetails/${params.id}`)
             },
             {
                 path: '/profile',
