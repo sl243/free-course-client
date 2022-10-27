@@ -70,7 +70,7 @@ const LogIn = () => {
     }
 
     return (
-        <div>
+        <div className='mb-5'>
             <div className='mt-5 border rounded shadow-lg p-5 w-50 mx-auto bg-light'>
                 <h3>Login Your Account</h3>
                 <Form onSubmit={handleSignIn}>
