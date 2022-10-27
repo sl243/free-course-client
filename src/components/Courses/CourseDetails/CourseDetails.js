@@ -3,18 +3,32 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import { jsPDF } from "jspdf";
+
 const CourseDetails = () => {
     const courseCategory = useLoaderData();
-    console.log(courseCategory)
+
+    const pdfGenerate = () => {
+        const doc = new jsPDF({
+            orientation: "landscape",
+            unit: "in",
+            format: [4, 2]
+        });
+
+        doc.text('React PDF Install e Error', 1, 1);
+        doc.save("course.pdf");
+
+    }
+
     return (
         <div>
-            <Card className=" container mt-5 mb-5">
+            <Card id='pdf' className=" container mt-5 mb-5">
                 <div className='d-flex justify-content-around align-items-center mt-3'>
                     <div>
                         <Card.Header><h2>{courseCategory[0].name}</h2></Card.Header>
                     </div>
                     <div>
-                        <Button variant="success">Download</Button>
+                        <Button onClick={pdfGenerate} variant="success">Download</Button>
                     </div>
                 </div>
                 <Card.Body className='mt-3 mb-3'>
